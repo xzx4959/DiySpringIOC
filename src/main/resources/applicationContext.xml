@@ -1,0 +1,10 @@
+<beans>
+    <bean name="student" class="com.spring.ioc.diy.model.Student" scope="singleton">
+        <property name="name" value="tom"></property>
+        <property name="teacher" ref="teacher"></property>
+    </bean>
+    <bean name="teacher" class="com.spring.ioc.diy.model.Teacher" scope="singleton">
+        <property name="name" value="jerry"/>
+        <property name="age" value="25"/>
+    </bean>
+</beans>
