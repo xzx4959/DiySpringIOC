@@ -89,7 +89,6 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
             }
         }
     }
-
     public Object generateBean(String name, Bean bean) throws Exception {
         if (contextMap.get(name) != null) {
             return contextMap.get(name);
@@ -103,6 +102,8 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
         List<Property> listProperties = bean.getProperties();
         for (Property property : listProperties) {
             String propertyName = property.getName();
+            //PropertyDescriptor类表示JavaBean类通过存储器导出一个属性,主要方法:
+            //getReadMethod获得读取属性名的方法,getWriteMethod()获得用于写入属性的方法
             PropertyDescriptor propertyDescriptor = new PropertyDescriptor(propertyName, beanClass);
             Method method = propertyDescriptor.getWriteMethod();
             if (property.getValue() != null) {
